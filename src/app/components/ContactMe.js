@@ -1,0 +1,44 @@
+export default function ContactMe() {
+  const emailAddress = "manueljuliocasanova@gmail.com";
+  return (
+    <section className="flex items-center h-screen md:h-96 w-full text-gray-400">
+      <div className="h-5/6 md:h-3/4  flex justify-center w-full">
+        <div className="w-3/4 flex-col">
+
+          <div className="flex flex-col md:flex-row  md:justify-start">
+            <div className="mr-8">
+            <h5 className="w-full text-4xl" id="contact">Contact us</h5>
+              <h6 className="mt-6 text-2xl">Main Office</h6>
+              <br />
+              <p>
+                850 Third Ave <br /> Suite 405 <br /> Brooklyn, NY 11232
+              </p>
+              <br />
+              <p className="">
+                P: (212) 206-1140 <br />
+                F: (212) 206-6754 <br />
+                <a
+                  href={`mailto:${emailAddress}`}
+                  className="border-solid border-b-2 hover:text-yellow-400"
+                >
+                  E: manueljuliocasanova@gmail.com
+                </a>
+              </p>
+            </div>
+
+            <div className="mr-28 mt-16">
+              <h6 className="text-2xl">Queens Office</h6>
+              <br />
+              <p>54-61 46th Street Maspeth, NY 11378</p>
+            </div>
+
+            <div className="mt-10 mb-10 md:mt-0">
+              <h5 className="w-full text-4xl">Polices</h5>
+              <h6 className="text-2xl mt-6">Click our polices to download</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
