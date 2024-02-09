@@ -4,17 +4,20 @@ import logo from "../../../public/img/logo.jpg";
 import { useState } from "react";
 import hamburger from "../../../public/img/hamburger-menu.svg";
 import close from "../../../public/img/close.svg";
+import { useTranslation } from "react-i18next";
+import LanguageChanger from "./LanguageChanger";
 
 export default function NavBar() {
   const [navBar, setNavBar] = useState(false);
+  const { t } = useTranslation();
 
   const handleScroll = (id) => {
     const elem = document.getElementById(id);
+
     if (elem) {
       elem.scrollIntoView({
         behavior: "smooth",
-        block: "start",
-        
+        block: id === "contact" ? "start" : "center",
       });
     }
   };
@@ -41,12 +44,14 @@ export default function NavBar() {
         className={`w-full py-2 px-4 flex justify-between fixed left-1/2 transform -translate-x-1/2 bg-transparent md:bg-black md:bg-opacity-50`}
       >
         <button
-          className="border-2 border-solid border-black"
+          className="flex justify-between"
           onClick={() => handleScroll("main")}
         >
-          <Image src={logo} alt="my tete" width={100} height={100} />
+          <Image src={logo} alt="my logo" width={100} height={100} />
+          <LanguageChanger />
         </button>
-        <div className="md:hidden">
+
+        <div className="md:hidden z-10">
           <button onClick={() => setNavBar((navBar) => !navBar)}>
             {navBar ? (
               <Image src={close} layout="responsive" alt="close" />
@@ -56,29 +61,29 @@ export default function NavBar() {
           </button>
         </div>
         <div
-          className={`md:text-yellow-400  w-[30vw] md:flex items-center justify-between ${
+          className={`md:text-yellow-400 active:text-yellow-400 w-[30vw] md:flex items-center justify-between ${
             navBar
-              ? "absolute w-screen h-5/6 top-10 text-blue-400 flex flex-col justify-evenly items-center bg-black md:text-red-300 md:w-[30vw] md:flex md:flex-row md:justify-between md:relative"
+              ? "absolute w-screen h-5/6 top-10 text-blue-400 flex flex-col justify-evenly items-center bg-black md:bg-transparent md:text-red-300 md:w-[30vw] md:flex md:flex-row md:justify-between md:relative"
               : "hidden"
           }`}
         >
           <button
-            className="hover:text-yellow-100 active:text-yellow-400"
+            className="hover:text-gray-300"
             onClick={() => handleScroll("services")}
           >
-            Services
+            {t("services")}
           </button>
           <button
-            className="hover:text-yellow-100 active:text-yellow-400"
+            className="hover:text-gray-300"
             onClick={() => handleScroll("about")}
           >
-            About us
+            {t("propos")}
           </button>
           <button
-            className="hover:text-yellow-100 active:text-yellow-400"
+            className="hover:text-gray-300"
             onClick={() => handleScroll("contact")}
           >
-            Contact us
+            {t("contactez")}
           </button>
         </div>
       </nav>

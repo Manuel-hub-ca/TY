@@ -1,4 +1,4 @@
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
 
 export default function Main() {
   return (
@@ -7,7 +7,7 @@ export default function Main() {
         <NavBar />
       </div>
       <video
-        src={require('../../../public/video.mp4')}
+        src={require("../../../public/video.mp4")}
         autoPlay
         loop
         muted
