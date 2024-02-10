@@ -6,6 +6,10 @@ import hamburger from "../../../public/img/hamburger-menu.svg";
 import close from "../../../public/img/close.svg";
 import { useTranslation } from "react-i18next";
 import LanguageChanger from "./LanguageChanger";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import Overlay from "./Overlay";
 
 export default function NavBar() {
   const [navBar, setNavBar] = useState(false);
@@ -19,6 +23,9 @@ export default function NavBar() {
         behavior: "smooth",
         block: id === "contact" ? "start" : "center",
       });
+      if (navBar === true) {
+        setNavBar(!navBar);
+      }
     }
   };
   // useEffect(() => {
@@ -41,8 +48,9 @@ export default function NavBar() {
   return (
     <>
       <nav
-        className={`w-full py-2 px-4 flex justify-between fixed left-1/2 transform -translate-x-1/2 bg-transparent md:bg-black md:bg-opacity-50`}
+        className={`w-full flex justify-between fixed left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50`}
       >
+        {navBar && <Overlay />}
         <button
           className="flex justify-between"
           onClick={() => handleScroll("main")}
@@ -51,36 +59,46 @@ export default function NavBar() {
           <LanguageChanger />
         </button>
 
-        <div className="md:hidden z-10">
+        <div className="md:hidden z-30 mr-4 mt-4">
           <button onClick={() => setNavBar((navBar) => !navBar)}>
             {navBar ? (
-              <Image src={close} layout="responsive" alt="close" />
+              <FontAwesomeIcon
+                icon={faX}
+                size="2x"
+                className="text-yellow-300"
+              />
             ) : (
-              <Image src={hamburger} alt="hamburger-menu" layout="responsive" />
+              // <Image src={close} layout="responsive" alt="close" />
+              <FontAwesomeIcon
+                icon={faBars}
+                size="2x"
+                className="text-yellow-300"
+              />
+              // <Image src={hamburger} alt="hamburger-menu" layout="responsive" />
             )}
           </button>
         </div>
         <div
-          className={`md:text-yellow-400 active:text-yellow-400 w-[30vw] md:flex items-center justify-between ${
+          className={`md:text-yellow-400 active:text-yellow-400 md:flex items-center justify-between z-20 w-3/4 ${
             navBar
-              ? "absolute w-screen h-5/6 top-10 text-blue-400 flex flex-col justify-evenly items-center bg-black md:bg-transparent md:text-red-300 md:w-[30vw] md:flex md:flex-row md:justify-between md:relative"
+              ? "absolute w-full h-screen right-0 text-yellow-200 flex flex-col justify-evenly items-center bg-gray-800 md:bg-transparent md:text-red-300 md:w-[30vw] md:flex md:flex-row md:justify-between md:relative"
               : "hidden"
           }`}
         >
           <button
-            className="hover:text-gray-300"
+            className="hover:text-gray-300 border-b text-base border-gray-300 hover:border-b-2 w-3/4 md:border-none"
             onClick={() => handleScroll("services")}
           >
             {t("services")}
           </button>
           <button
-            className="hover:text-gray-300"
+            className="hover:text-gray-300 text-base border-b border-gray-300 w-3/4 hover:border-b-2 md:border-none"
             onClick={() => handleScroll("about")}
           >
             {t("propos")}
           </button>
           <button
-            className="hover:text-gray-300"
+            className="hover:text-gray-300 border-b hover:border-b-2 text-base border-gray-300 w-3/4 md:border-none"
             onClick={() => handleScroll("contact")}
           >
             {t("contactez")}

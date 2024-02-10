@@ -32,7 +32,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bottom-0 w-full h-28 bg-gradient-to-r from-black to-gray-400">
+    <footer className="flex justify-center items-center bottom-0 w-full h-28 bg-gradient-to-r from-black to-gray-400">
       <nav className=" w-full h-full flex justify-evenly items-center">
         {socials.map((s, i) => (
           <a

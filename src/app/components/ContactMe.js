@@ -6,12 +6,12 @@ export default function ContactMe() {
   const {t} = useTranslation()
   return (
     <section className="flex items-center h-screen md:h-96 w-full text-gray-400">
-      <div className="h-5/6 md:h-3/4  flex justify-center w-full">
+      <div className="h-5/6 md:h-3/4  flex justify-center items-center w-full">
         <div className="w-3/4 flex-col">
 
           <div className="flex flex-col md:flex-row  md:justify-start">
             <div className="mr-8">
-            <h5 className="w-full text-4xl" id="contact">Contactez-nous</h5>
+            <h5 className="w-full text-3xl" id="contact">Contactez-nous</h5>
               <h6 className="mt-6 text-2xl">Main Office</h6>
               <br />
               <p>
@@ -37,7 +37,7 @@ export default function ContactMe() {
             </div>
 
             <div className="mt-10 mb-10 md:mt-0">
-              <h5 className="w-full text-4xl">Polices</h5>
+              <h5 className="w-full text-3xl">Polices</h5>
               <h6 className="text-2xl mt-6">Cliquez sur nos polices pour télécharger</h6>
             </div>
           </div>

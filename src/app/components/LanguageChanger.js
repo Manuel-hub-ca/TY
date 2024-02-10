@@ -47,7 +47,7 @@ export default function LanguageChanger() {
 
   return (
     <div
-      className="text-gray-800 w-36 cursor-pointer flex flex-col justify-between items-center ml-8"
+      className="text-gray-800 w-max md:w-36 cursor-pointer flex flex-col justify-between items-center ml-8"
       onClick={() => setRotated(!rotated)}
     >
       <div
