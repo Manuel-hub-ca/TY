@@ -1,21 +1,21 @@
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import canFlag from "../../../public/img/canadaFlag.png";
-import qcFlag from "../../../public/img/quebecFlag.png";
-import spFlag from "../../../public/img/spainFlag.png";
+import canFlag from "@/public/img/canadaFlag.png";
+import qcFlag from "@/public/img/quebecFlag.png";
+import spFlag from "@//public/img/spainFlag.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from 'next/navigation';
-import { usePathname } from 'next/navigation';
-import i18nConfig from '../../../i18nConfig';
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import i18nConfig from "@/i18nConfig"
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
   const [openedDropDownMenu, setOpenedDropDownMenu] = useState(false);
   const [rotated, setRotated] = useState(false);
   const router = useRouter();
-  const currentPathname = usePathname()
+  const currentPathname = usePathname();
   const currentLocale = i18n.language;
 
   const handleLanguageChange = (newLocale) => {
