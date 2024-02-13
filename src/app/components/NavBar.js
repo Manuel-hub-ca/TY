@@ -21,7 +21,7 @@ export default function NavBar() {
     if (elem) {
       elem.scrollIntoView({
         behavior: "smooth",
-        block: id === "contact" ? "start" : "center",
+        block: id === "about" ? "end" : "center",
       });
       if (navBar === true) {
         setNavBar(!navBar);

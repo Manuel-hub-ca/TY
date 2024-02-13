@@ -23,7 +23,7 @@ async function Home({ params: { locale } }) {
           <NavBar />
         </div>
         <video
-          src={require("../../../public/video.mp4")}
+          src={require("@/public/video.mp4")}
           autoPlay
           loop
           playsInline

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
-import i18nConfig from "@/i18nConfig"
+import i18nConfig from "@/i18nConfig";
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -54,7 +54,7 @@ export default function LanguageChanger() {
         className="flex w-full justify-around items-center rounded-t-md bg-gray-700 px-1 bg-opacity-75"
         onClick={() => setOpenedDropDownMenu(!openedDropDownMenu)}
       >
-        <p className="h-1/3 text-yellow-100 mr-2">Language</p>
+        <p className="h-full text-yellow-100 mr-2">Language</p>
         <FontAwesomeIcon
           icon={faAngleDown}
           size="2"
@@ -66,23 +66,23 @@ export default function LanguageChanger() {
       </div>
 
       {openedDropDownMenu && (
-        <div className="h-2/3 w-full bg-gray-300">
+        <div className="h-full w-full flex flex-col justify-center items-center bg-gray-300">
           <div
-            className="flex justify-evenly items-center hover:bg-cyan-50 cursor-pointer"
+            className="flex justify-start items-center hover:bg-cyan-50 cursor-pointer w-20"
             onClick={() => handleLanguageChange("en")}
           >
             <Image src={canFlag} width={15} height={15} />
             <span className="ml-1">English</span>
           </div>
           <div
-            className="flex justify-evenly items-center hover:bg-cyan-50 cursor-pointer"
+            className="flex justify-start items-center hover:bg-cyan-50 cursor-pointer w-20"
             onClick={() => handleLanguageChange("fr")}
           >
             <Image src={qcFlag} width={15} height={15} />
             <span className="ml-1">French</span>
           </div>
           <div
-            className="flex justify-evenly items-center hover:bg-cyan-50 cursor-pointer"
+            className="flex justify-start items-center hover:bg-cyan-50 cursor-pointer w-20"
             onClick={() => handleLanguageChange("es")}
           >
             <Image src={spFlag} width={15} height={15} />
