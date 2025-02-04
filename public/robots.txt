@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# Define the preferred domain (canonical URL)
+Host: https://yourdomain.com
+
+# Specify the sitemap location for search engines
+Sitemap: https://yourdomain.com/sitemap.xml

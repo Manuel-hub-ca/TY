@@ -1,20 +1,20 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {};
-
-// module.exports = nextConfig;
-
-// const withVideos = require('next-videos');
-
-// module.exports = withVideos();
-
-const withVideos = require('next-videos');
 const path = require('path');
 
-const nextConfig = {};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  webpack(config, { isServer }) {
+    // Add Webpack rule for video files
+    config.module.rules.push({
+      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/i,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/media/[hash][ext][query]',
+      },
+    });
 
-module.exports = withVideos({
-  webpack(config, options) {
     config.resolve.alias['@alias'] = path.resolve(__dirname, 'path/to/alias');
     return config;
   },
-});
+};
+
+module.exports = nextConfig;
