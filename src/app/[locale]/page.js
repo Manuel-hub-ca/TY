@@ -28,7 +28,7 @@ async function Home({ params: { locale } }) {
         <meta property="og:image" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app/background.jpeg" />
         <meta property="og:url" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
-
+        <meta name="google-site-verification" content="KhRmOOPrgUNPUlddmnpVQFbCUYTTCh0wdz0g5sQq58g" />
         {/* ✅ Mobile Friendly */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
