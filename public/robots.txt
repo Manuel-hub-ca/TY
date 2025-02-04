@@ -3,7 +3,7 @@ User-agent: *
 Disallow:
 
 # Define the preferred domain (canonical URL)
-Host: https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app
+Host: https://ty-tan.vercel.app
 
 # Specify the sitemap location for search engines
-Sitemap: https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app/sitemap.xml
+Sitemap: https://ty-tan.vercel.app/sitemap.xml

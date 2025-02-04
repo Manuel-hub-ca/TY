@@ -15,25 +15,24 @@ async function Home({ params: { locale } }) {
 
   return (
     <>
-      {/* ✅ Add SEO Meta Tags */}
       <Head>
-        <title>Top Electrical Services | TY-2</title>
+        <title>Top Electrical Services | TY-TAN</title>
         <meta name="description" content="Get professional and reliable electrical services for residential and commercial needs. Safety and efficiency guaranteed." />
         <meta name="keywords" content="electrician, electrical services, commercial electrical, residential electrical, power solutions" />
-        <meta name="author" content="TY-2 Electrical Services" />
+        <meta name="author" content="TY-TAN Electrical Services" />
 
         {/* ✅ Social Media Sharing (Open Graph Meta Tags) */}
-        <meta property="og:title" content="Top Electrical Services | TY-2" />
+        <meta property="og:title" content="Top Electrical Services | TY-TAN" />
         <meta property="og:description" content="Get professional and reliable electrical services for residential and commercial needs." />
-        <meta property="og:image" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app/background.jpeg" />
-        <meta property="og:url" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app" />
+        <meta property="og:image" content="https://ty-tan.vercel.app/background.jpeg" />
+        <meta property="og:url" content="https://ty-tan.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="google-site-verification" content="KhRmOOPrgUNPUlddmnpVQFbCUYTTCh0wdz0g5sQq58g" />
+
         {/* ✅ Mobile Friendly */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* ✅ Canonical URL (To Avoid Duplicate Content Issues) */}
-        <link rel="canonical" href="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app" />
+        <link rel="canonical" href="https://ty-tan.vercel.app" />
       </Head>
 
       <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>

@@ -1,5 +1,4 @@
 module.exports = {
-    siteUrl: "https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app", // ✅ Updated domain
+    siteUrl: "https://ty-tan.vercel.app", // ✅ Updated domain with HTTPS
     generateRobotsTxt: true, // Generates a robots.txt file
-  };
-  
+};
