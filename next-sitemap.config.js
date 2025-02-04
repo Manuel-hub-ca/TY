@@ -1,6 +1,5 @@
-/** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: "https://ty-2.vercel.app",
-    generateRobotsTxt: true, // Generate robots.txt
+    siteUrl: "https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app", // ✅ Updated domain
+    generateRobotsTxt: true, // Generates a robots.txt file
   };
   

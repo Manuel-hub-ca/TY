@@ -25,15 +25,15 @@ async function Home({ params: { locale } }) {
         {/* ✅ Social Media Sharing (Open Graph Meta Tags) */}
         <meta property="og:title" content="Top Electrical Services | TY-2" />
         <meta property="og:description" content="Get professional and reliable electrical services for residential and commercial needs." />
-        <meta property="og:image" content="https://ty-2.vercel.app/background.jpeg" />
-        <meta property="og:url" content="https://ty-2.vercel.app" />
+        <meta property="og:image" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app/background.jpeg" />
+        <meta property="og:url" content="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* ✅ Mobile Friendly */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* ✅ Canonical URL (To Avoid Duplicate Content Issues) */}
-        <link rel="canonical" href="https://ty-2.vercel.app" />
+        <link rel="canonical" href="https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app" />
       </Head>
 
       <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>

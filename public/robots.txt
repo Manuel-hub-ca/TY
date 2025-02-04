@@ -1,9 +1,9 @@
-# *
+# Allow all search engines to crawl the site
 User-agent: *
-Allow: /
+Disallow:
 
-# Host
-Host: https://ty-2.vercel.app
+# Define the preferred domain (canonical URL)
+Host: https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app
 
-# Sitemaps
-Sitemap: https://ty-2.vercel.app/sitemap.xml
+# Specify the sitemap location for search engines
+Sitemap: https://ty-2-2goc32b78-manuelhubcas-projects.vercel.app/sitemap.xml
