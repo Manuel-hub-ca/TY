@@ -1,4 +1,10 @@
+"use client"
+import React from "react";
+import { useTranslation } from "react-i18next";
+
 const HeroSection = () => {
+
+  const {t} = useTranslation();
   return (
     <div
       className="flex flex-col items-center justify-center min-h-screen text-white text-center w-full"
@@ -10,9 +16,9 @@ const HeroSection = () => {
         backgroundAttachment: "fixed"               // ✅ Keeps image static on scroll
       }}
     >
-      <h1 className="text-5xl font-bold mb-4">Welcome to Our Services</h1>
+      <h1 className="text-5xl font-bold mb-4">{t("welcomeToOurServices")}</h1>
       <p className="text-xl max-w-2xl">
-        Providing top-notch electrical services with safety and efficiency.
+        {t("serviceDescription")}
       </p>
     </div>
   );
