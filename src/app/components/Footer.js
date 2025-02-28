@@ -1,20 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
-  faGithub,
   faLinkedin,
-  faTwitter,
-  faStackOverflow,
+  faFacebook,
+  faInstagram,
+  faTiktok
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   const socials = [
     {
       icon: faEnvelope,
-      url: "manuel: manueljuliocasanova@gmail.com",
+      url: "mailto: tyelectrique@gmail.com",
     },
     {
-      icon: faGithub,
+      icon: faFacebook,
       url: "https://github.com/Manuel-hub-ca",
     },
     {
@@ -22,11 +22,11 @@ export default function Footer() {
       url: "https://www.linkedin.com/in/manuel-julio-casanova-reyes-606585266/",
     },
     {
-      icon: faTwitter,
+      icon: faInstagram,
       url: "https://twitter.com/ManuelJuli1132",
     },
     {
-      icon: faStackOverflow,
+      icon: faTiktok,
       url: "https://stackoverflow.com/users/22500321/manuel-julio-casanova-reyes",
     },
   ];
