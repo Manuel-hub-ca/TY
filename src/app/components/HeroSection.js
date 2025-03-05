@@ -38,7 +38,7 @@ const HeroSection = () => {
     <div
       className="flex flex-col items-center justify-center min-h-screen text-white text-center w-full px-4
                  bg-cover bg-center bg-no-repeat md:bg-fixed" // Fixed only on desktop
-      style={{ backgroundImage: "url('/background.jpeg')" }}
+      // style={{ backgroundImage: "url('/background.JPG')" }}
     >
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
         {t("welcomeToOurServices")}

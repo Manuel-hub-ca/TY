@@ -1,110 +1,172 @@
-"use client";
+"use client"; // ✅ Ensures this runs only on the client side
+import React, { useState, useRef } from "react";
 import Image from "next/image";
-import logo from "../../../public/img/logo.jpg";
-import { useState } from "react";
-import hamburger from "../../../public/img/hamburger-menu.svg";
-import close from "../../../public/img/close.svg";
-import { useTranslation } from "react-i18next";
-import LanguageChanger from "./LanguageChanger";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import Overlay from "./Overlay";
+import { faChevronDown, faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
+import LanguageChanger from "./LanguageChanger";
+import { useTranslation } from "react-i18next";
 
 export default function NavBar() {
-  const [navBar, setNavBar] = useState(false);
-  const { t } = useTranslation();
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const timeoutRef = useRef(null);
+  const { push } = useRouter();
 
-  const handleScroll = (id) => {
-    const elem = document.getElementById(id);
-
-    if (elem) {
-      elem.scrollIntoView({
-        behavior: "smooth",
-        block: id === "about" ? "end" : "center",
-      });
-      if (navBar === true) {
-        setNavBar(!navBar);
+  const handleNavigation = (id, isServicePage = false) => {
+    setServicesOpen(false);
+    if (isServicePage) {
+      if (id == "home"){
+        push("/")
+      }else {
+        push(`/services#${id}`);
       }
+
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-  // useEffect(() => {
-  //     const handleResize = () => {
-  //         if (window.innerWidth >= 768 && navBar) {
-  //             // If screen size is larger than or equal to 768 pixels and navBar is open, close it
-  //             setNavBar(false);
-  //         }
-  //     };
-
-  //     // Attach the event listener
-  //     window.addEventListener("resize", handleResize);
-
-  //     // Cleanup the event listener on component unmount
-  //     return () => {
-  //         window.removeEventListener("resize", handleResize);
-  //     };
-  // }, [navBar]);
+    const { t } = useTranslation();
 
   return (
-    <>
-      <nav
-        className={`w-full flex justify-between fixed left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50`}
-      >
-        {navBar && <Overlay />}
-        <button
-          className="flex justify-between"
-          onClick={() => handleScroll("main")}
-        >
-          <Image src={logo} alt="my logo" width={100} height={100} />
-          <LanguageChanger />
-        </button>
+    <nav className="w-full fixed top-0 left-0 bg-black bg-opacity-80 z-50 flex justify-between items-center px-6 py-4">
+      {/* Logo */}
+      {/* <div className="flex items-center cursor-pointer" onClick={() => handleNavigation("main")}>
+        <Image src="/img/logo.jpg" alt="My Logo" width={120} height={40} />
+        <LanguageChanger />
+      </div> */}
 
-        <div className="md:hidden z-30 mr-4 mt-4">
-          <button onClick={() => setNavBar((navBar) => !navBar)}>
-            {navBar ? (
-              <FontAwesomeIcon
-                icon={faX}
-                size="2x"
-                className="text-yellow-300"
-              />
-            ) : (
-              // <Image src={close} layout="responsive" alt="close" />
-              <FontAwesomeIcon
-                icon={faBars}
-                size="2x"
-                className="text-yellow-300"
-              />
-              // <Image src={hamburger} alt="hamburger-menu" layout="responsive" />
-            )}
-          </button>
-        </div>
-        <div
-          className={`md:text-yellow-400 active:text-yellow-400 md:flex items-center justify-between z-20 w-3/4 ${
-            navBar
-              ? "absolute w-full h-screen right-0 text-yellow-200 flex flex-col justify-evenly items-center bg-gray-800 md:bg-transparent md:text-red-300 md:w-[30vw] md:flex md:flex-row md:justify-between md:relative"
-              : "hidden"
-          }`}
+      <div className="flex   items-start cursor-pointer" onClick={() => handleNavigation("home",true)}>
+        <Image src="/img/logo.jpg" alt="My Logo" width={120} height={40} />
+        <LanguageChanger />
+      </div>
+
+
+      {/* Mobile Menu Button */}
+      <div className="md:hidden z-50">
+        <button onClick={() => setMenuOpen((prev) => !prev)} className="text-yellow-300 text-2xl">
+          <FontAwesomeIcon icon={menuOpen ? faX : faBars} />
+        </button>
+      </div>
+
+      {/* Navbar Items (Desktop) */}
+      <div className={`md:flex md:items-center md:space-x-6 ${menuOpen ? "flex flex-col items-center w-full bg-black p-6" : "hidden md:flex"}`}>
+      <ReappearingNavItem
+          defaultText={t("home")}
+          hoverText={t("home")}
+          onClick={() => handleNavigation("home", true)}
+        />
+        {/* Services Dropdown */}
+        <motion.div
+          className="relative group"
+          onMouseEnter={() => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setServicesOpen(true);
+          }}
+          onMouseLeave={() => {
+            timeoutRef.current = setTimeout(() => setServicesOpen(false), 200);
+          }}
         >
-          <button
-            className="hover:text-gray-300 border-b text-base border-gray-300 hover:border-b-2 w-3/4 md:border-none"
-            onClick={() => handleScroll("services")}
-          >
-            {t("services")}
-          </button>
-          <button
-            className="hover:text-gray-300 text-base border-b border-gray-300 w-3/4 hover:border-b-2 md:border-none"
-            onClick={() => handleScroll("about")}
-          >
-            {t("propos")}
-          </button>
-          <button
-            className="hover:text-gray-300 border-b hover:border-b-2 text-base border-gray-300 w-3/4 md:border-none"
-            onClick={() => handleScroll("contact")}
-          >
-            {t("contactez")}
-          </button>
-        </div>
+          
+          <motion.div className="text-white text-lg flex items-center cursor-pointer">
+    
+            <span> {t("services")}</span>
+            <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-sm" />
+          </motion.div>
+
+          {servicesOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="absolute left-0 mt-2 bg-gray-700 shadow-md rounded-lg py-2 w-56 z-50"
+            >
+              <DropdownItem text={t("appeldeservice")} onClick={() => handleNavigation("service-call", true)} />
+              <DropdownItem text={t("maintenance")} onClick={() => handleNavigation("maintenance", true)} />
+              <DropdownItem text={t("panelandServiceEntrance")} onClick={() => handleNavigation("panel", true)} />
+              <DropdownItem text={t("generatorInstallation")} onClick={() => handleNavigation("generator", true)} />
+              <DropdownItem text={t("bornedeRecharge")} onClick={() => handleNavigation("ev", true)} />
+              <DropdownItem text={t("newConstruction")} onClick={() => handleNavigation("new-construction", true)} />
+              <DropdownItem text={t("Renovation")} onClick={() => handleNavigation("renovation", true)} />
+            </motion.div>
+          )}
+        </motion.div>
+
+        {/* ✅ Corrected Reappearing Nav Items */}
+        <ReappearingNavItem
+          defaultText={t("propos")}
+          hoverText={t("propos")}
+          onClick={() => handleNavigation("about")}
+        />
+        <ReappearingNavItem
+          defaultText={t("contactez")}
+          hoverText={t("contactez")}
+          onClick={() => handleNavigation("contact")}
+        />
+      </div>
+  
+
+
       </nav>
-    </>
   );
 }
+
+/* ✅ Reusable Dropdown Item */
+const DropdownItem = ({ text, onClick }) => (
+  <div className="px-4 py-2 text-white hover:bg-gray-600 cursor-pointer" onClick={onClick}>
+    {text}
+  </div>
+);
+
+
+
+const ReappearingNavItem = ({ defaultText, hoverText, onClick }) => {
+  return (
+    <motion.div
+      className="relative text-white text-lg cursor-pointer overflow-hidden h-8 flex justify-center items-center min-w-[160px]"
+      onClick={onClick}
+      whileHover="hovered"
+      initial="initial"
+      animate="initial"
+    >
+      {/* Default Text (Visible Initially) */}
+      <motion.div
+        className="absolute w-full text-center"
+        variants={{
+          initial: { y: "0%", opacity: 1 },
+          hovered: { y: "100%", opacity: 0.3 }, // ✅ Leaves slowly visible before disappearing
+        }}
+        transition={{ duration: 0.4, ease: "easeInOut" }} // ✅ Smooth & natural
+        style={{
+          color: "#ffffff", // Always white text
+          backgroundColor: "transparent", // No background
+          fontSize: "18px",
+        }}
+      >
+        {defaultText}
+      
+      </motion.div>
+
+      {/* Hover Text (Appears from Above) */}
+      <motion.div
+        className="absolute w-full text-center"
+        variants={{
+          initial: { y: "-100%", opacity: 0.3 }, // ✅ Starts slightly visible
+          hovered: { y: "0%", opacity: 1 }, // ✅ Slowly becomes fully visible
+        }}
+        transition={{ duration: 0.4, ease: "easeInOut" }} // ✅ Smooth & natural
+        style={{
+          color: "#ffffff", // Always white text
+          backgroundColor: "transparent", // No background
+          fontSize: "18px",
+        }}
+      >
+        {hoverText}
+      </motion.div>
+    </motion.div>
+  );
+};
+
+
+

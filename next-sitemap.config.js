@@ -1,4 +1,4 @@
 module.exports = {
-    siteUrl: "https://ty-tan.vercel.app", // ✅ Updated domain with HTTPS
+    siteUrl: "https://www.tyelectrique.ca", // ✅ Updated domain
     generateRobotsTxt: true, // Generates a robots.txt file
 };
