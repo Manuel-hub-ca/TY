@@ -54,6 +54,7 @@
 "use client";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import SocialMedia from "./SocialMedia";
 
 export default function ContactMe() {
   const { t } = useTranslation();
@@ -61,7 +62,8 @@ export default function ContactMe() {
   
 
   return (
-    <div className="bg-[#000000] text-yellow-400 text-center py-12 mt-12 shadow-lg">
+    <section>
+          <div className="bg-nuetral-900 text-yellow-400 text-center py-12 shadow-lg">
     <h2 className="text-4xl font-bold uppercase">{t("contactez")}</h2>
     <p className="mt-3 text-xl text-gray-300">T&Y Electrique</p>
     <p className="mt-2 text-lg">{t("phone")}: <a href="tel:4387013448" className="text-yellow-400">438-701-3448</a></p>
@@ -72,5 +74,8 @@ export default function ContactMe() {
     <p>{t("monday")} - {t("vendredi")}: 7 AM - 4 PM</p>
     <p className="mt-2">{t("urgences")}: <span className="text-yellow-400">24/7</span></p>
   </div>
+  <SocialMedia/>
+    </section>
+
   );
 }

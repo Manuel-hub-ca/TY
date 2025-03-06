@@ -112,7 +112,7 @@ export default function Services() {
           <div
             key={service.id}
             id={service.id}
-            className={`flex flex-col md:flex-row ${
+            className={`flex mb-10 flex-col md:flex-row ${
               index % 2 === 0 ? "" : "md:flex-row-reverse"
             } items-center gap-6 bg-gray-800 shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105 duration-300`}
           >

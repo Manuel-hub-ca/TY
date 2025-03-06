@@ -3,5 +3,25 @@
 @tailwind utilities;
 
   
+/* 
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  } */
+  
+  /* ✅ Default: Desktop Background */
+  /* .background {
+    background-image: url('/background_optimized.webp');
+  }
+   */
+  /* ✅ Mobile Background (Smaller, Optimized Image) */
+  /* @media (max-width: 768px) {
+    .background {
+      background-image: url('/background_optimized_mobile.webp');
+      background-size: contain; /* Makes sure the image is properly scaled */
+      /* background-position: center top; */
 
   
