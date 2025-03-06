@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import NavBar from "../../components/NavBar"; // ✅ Import NavBar
-import ContactMe from "../../components/ContactMe";
+import NavBar from "../../../components/NavBar"; // ✅ Import NavBar
+import ContactMe from "../../../components/ContactMe";
 export default function Services() {
   return (
     <section className="bg-neutral-900 text-gray-300">
@@ -117,7 +117,7 @@ export default function Services() {
             } items-center gap-6 bg-gray-800 shadow-lg p-6 rounded-lg transition-transform transform hover:scale-105 duration-300`}
           >
             {/* Text Section */}
-            <div className="md:w-1/2">
+            <div className="w-full text-center md:w-1/2">
               <h3 className="text-3xl font-bold text-yellow-400 uppercase">
                 {service.title}
               </h3>
@@ -139,16 +139,17 @@ export default function Services() {
 
             {/* Image Section */}
             <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-[400px] h-[250px] md:w-[350px] md:h-[200px]">
-                <Image
-                  src="/service1.jpeg"
-                  alt={service.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
+  <div className="relative w-[250px] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[300px] md:h-[350px]">
+    <Image
+      src="/service1.jpeg"
+      fill
+      className="rounded-lg shadow-lg object-cover"
+      alt={service.title}
+    />
+  </div>
+</div>
+
+
           </div>
         ))}
       </div>

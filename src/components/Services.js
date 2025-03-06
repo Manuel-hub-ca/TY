@@ -194,19 +194,17 @@
 
 
   "use client";
-  import { useTranslation } from "react-i18next";
   import Link from "next/link";
   import { Wrench, ShieldCheck, Zap, Plug, BatteryCharging, Home, Hammer } from "lucide-react";
-
+  import { useIntl } from "react-intl";
   export default function Services() {
-    const { t } = useTranslation();
-
+    const intl = useIntl()
     return (
       <section className="w-full flex flex-col items-center justify-center py-14 bg-black bg-opacity-50 text-white px-6">
         
         {/* Section Title */}
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-yellow-400 to-white text-transparent bg-clip-text">
-          {t("nosServices")}
+          {intl.formatMessage({id:"nosServices"})}
         </h1>
 
         {/* Grid Layout */}
@@ -216,17 +214,18 @@
           <div className="flex flex-col space-y-4 items-center sm:items-start">
             <Link href="/services#appeldeservice" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <Wrench className="w-6 h-6 text-yellow-400" />
-              <h2>{t("appeldeservice")}</h2>
+              {intl.formatMessage({id:"appeldeservice"})}
+      
             </Link>
             
             <Link href="/services#maintenance" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <ShieldCheck className="w-6 h-6 text-yellow-400" />
-              <h2>{t("maintenance")}</h2>
+              {intl.formatMessage({id:"maintenance"})}
             </Link>
 
             <Link href="/services#panelandServiceEntrance" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <Zap className="w-6 h-6 text-yellow-400" />
-              <h2>{t("panelandServiceEntrance")}</h2>
+              {intl.formatMessage({id:"panelandServiceEntrance"})}
             </Link>
           </div>
 
@@ -234,7 +233,7 @@
           <div className="flex flex-col items-center justify-center">
             <Link href="/services#renovation" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <Hammer className="w-6 h-6 text-yellow-400" />
-              <h2 className="text-center">{t("Renovation")}</h2>
+              {intl.formatMessage({id:"Renovation"})}
             </Link>
           </div>
 
@@ -242,17 +241,17 @@
           <div className="flex flex-col space-y-4 items-center sm:items-start">
             <Link href="/services#generatorInstallation" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <Plug className="w-6 h-6 text-yellow-400" />
-              <h2>{t("generatorInstallation")}</h2>
+              {intl.formatMessage({id:"generatorInstallation"})}
             </Link>
 
             <Link href="/services#bornedeRecharge" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <BatteryCharging className="w-6 h-6 text-yellow-400" />
-              <h2>{t("bornedeRecharge")}</h2>
+              {intl.formatMessage({id:"bornedeRecharge"})}
             </Link>
 
             <Link href="/services#newConstruction" scroll={false} className="flex items-center gap-3 cursor-pointer hover:text-yellow-400 transition">
               <Home className="w-6 h-6 text-yellow-400" />
-              <h2>{t("newConstruction")}</h2>
+              {intl.formatMessage({id:"newConstruction"})}
             </Link>
           </div>
 
