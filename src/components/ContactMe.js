@@ -13,7 +13,15 @@ export default function ContactMe() {
           <div className="bg-nuetral-900 text-yellow-400 text-center py-12 shadow-lg">
     <h2 className="text-4xl font-bold uppercase">{intl.formatMessage({id:"contactez"})}</h2>
     <p className="mt-3 text-xl text-gray-300">T&Y Electrique</p>
-    <p className="mt-2 text-lg">{intl.formatMessage({id:"phone"})}: <a href="tel:4387013448" className="text-yellow-400">438-701-3448</a></p>
+    {/* <p className="mt-2 text-lg">{intl.formatMessage({id:"phone"})}: <a href="tel:5146919445" className="text-yellow-400">(514)-691-9445</a></p> */}
+            {/* ✅ Display both phone numbers */}
+        {/* ✅ Static phone numbers (Not translated) */}
+        <p className="mt-2 text-lg">
+          {intl.formatMessage({ id: "phone" })}:
+          <a href="tel:5146919445" className="text-yellow-400"> (514)-691-9445</a> 
+          <span className="mx-2">|</span> 
+          <a href="tel:4387013448" className="text-yellow-400"> (438)-701-3448</a>
+        </p>
     <p>{intl.formatMessage({id:"email"})}: <a href="mailto:info@quebexelectrique.com" className="text-yellow-400">{emailAddress}</a></p>
 
     <p className="mt-3">{intl.formatMessage({id:"address"})}: 11719 Av. de l'Hôtel-de-Ville, Montréal-Nord, Québec, H1H 3W3</p>

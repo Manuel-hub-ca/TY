@@ -39,12 +39,14 @@ const HeroSection = () => {
                  bg-cover bg-center bg-no-repeat md:bg-fixed" // Fixed only on desktop
       // style={{ backgroundImage: "url('/background.JPG')" }}
     >
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+      <h1 className="text-6xl font-extrabold tracking-wide text-neutral-800">T&Y ELECTRIQUE</h1>
+     <p className="text-xl mt-3 text-yellow-400 ">{intl.formatMessage({id:"powerupwithconfidence"})}</p>
+      {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
         {intl.formatMessage({id:"welcomeToOurServices"})}
       </h1>
       <p className="text-xl max-w-2xl">
       {intl.formatMessage({id:"serviceDescription"})}
-      </p>
+      </p> */}
     </div>
   );
 };

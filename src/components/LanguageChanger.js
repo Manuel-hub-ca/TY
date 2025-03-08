@@ -255,11 +255,11 @@ export default function LanguageChanger() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 bg-gray-800 bg-opacity-75 p-2 rounded-md shadow-lg">
+    <div className="fixed bottom-12 right-2 md:bottom-4 md:right-4 z-50 bg-gray-800 bg-opacity-75 p-2 rounded-md shadow-lg">
       <select
         onChange={handleChange}
         value={currentLocale}
-        className="px-3 py-2 bg-gray-700 text-white rounded-md cursor-pointer outline-none"
+        className="px-3 py-2 bg-yellow-300 text-white rounded-md cursor-pointer outline-none"
       >
         <option value="en">{intl.formatMessage({ id: "english" })}</option>
         <option value="fr">{intl.formatMessage({ id: "french" })}</option>
