@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import HeroSection from "../../components/HeroSection";
 import NavBar from "../../components/NavBar";
 import Services from "../../components/Services";
-import LanguageChanger from "@/src/components/LanguageChanger";
+import LanguageChanger from "@/components/LanguageChanger";
 // import TranslationsProvider from "../components/TranslationsProvider";
 // import initTranslations from "../../lib/i18n";
 
