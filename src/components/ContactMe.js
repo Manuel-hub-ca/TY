@@ -20,7 +20,7 @@ export default function ContactMe() {
           {intl.formatMessage({ id: "phone" })}:
           <a href="tel:5146919445" className="text-yellow-400"> (514)-691-9445</a> 
           <span className="mx-2">|</span> 
-          <a href="tel:4387013448" className="text-yellow-400"> (438)-701-3448</a>
+          <a href="tel:4387013448" className="text-yellow-400"> (514)-569-8292</a>
         </p>
     <p>{intl.formatMessage({id:"email"})}: <a href="mailto:info@quebexelectrique.com" className="text-yellow-400">{emailAddress}</a></p>
 

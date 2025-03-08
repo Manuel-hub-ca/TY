@@ -10,6 +10,8 @@ import LanguageChanger from "@/components/LanguageChanger";
 // import TranslationsProvider from "../components/TranslationsProvider";
 // import initTranslations from "../../lib/i18n";
 
+ // "dev": "i18nexus pull && next dev", remmeber this in packagejosn to pull translation
+
 // ✅ Convert Home to a Normal Component
 export default function Home({ params: { locale } }) {
   return (
