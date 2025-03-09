@@ -69,9 +69,9 @@ export default function SocialMedia() {
   const socials = [
     { icon: faEnvelope, url: "mailto:tyelectrique@gmail.com" },
     { icon: faFacebook, url: "https://www.facebook.com/tyelectrique/" },
-    { icon: faLinkedin, url: "https://www.linkedin.com/in/manuel-julio-casanova-reyes-606585266/" },
+    { icon: faLinkedin, url: "" },
     { icon: faInstagram, url: "https://www.instagram.com/tyelectrique/" },
-    { icon: faTiktok, url: "https://stackoverflow.com/users/22500321/manuel-julio-casanova-reyes" },
+    { icon: faTiktok, url: "" },
   ];
 
   return (
