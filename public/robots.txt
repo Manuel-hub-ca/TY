@@ -3,7 +3,7 @@ User-agent: *
 Disallow:
 
 # Define the preferred domain (canonical URL)
-Host: https://ty-tan.vercel.app
+Host: https://www.tyelectrique.ca
 
 # Specify the sitemap location for search engines
-Sitemap: https://ty-tan.vercel.app/sitemap.xml
+Sitemap: https://www.tyelectrique.ca/sitemap.xml
