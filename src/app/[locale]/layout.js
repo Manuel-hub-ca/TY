@@ -48,7 +48,6 @@
 //   );
 // }
 
-
 import { Inter } from "next/font/google";
 import "./globals.css";
 import i18nConfig from "../../lib/i18nConfig";
@@ -61,9 +60,9 @@ export const metadata = {
   title: "TY-TAN Electrical Services",
   description: "Get professional and reliable electrical services for residential and commercial needs. Safety and efficiency guaranteed.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg", // ✅ Next.js automatically serves this from /public
     apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico"
+    shortcut: "/favicon.svg"
   },
 };
 
@@ -86,31 +85,6 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale} dir={dir(locale)} className={inter.className}>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://www.tyelectrique.ca" />
-        
-        {/* ✅ Open Graph */}
-        <meta property="og:title" content="Top Electrical Services | TY-TAN" />
-        <meta property="og:description" content="Get professional and reliable electrical services for residential and commercial needs." />
-        <meta property="og:image" content="https://www.tyelectrique.ca/background.jpeg" />
-        <meta property="og:url" content="https://www.tyelectrique.ca" />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        {/* ✅ JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "TY-TAN Electrical Services",
-              "url": "https://www.tyelectrique.ca",
-              "logo": "https://www.tyelectrique.ca/logo.png"
-            }
-          `}
-        </script>
-      </head>
       <body className="relative">
         {/* ✅ Provide merged translations */}
         <ServerIntlProvider messages={mergedMessages} locale={locale}>
@@ -122,3 +96,4 @@ export default async function RootLayout({ children, params: { locale } }) {
     </html>
   );
 }
+
