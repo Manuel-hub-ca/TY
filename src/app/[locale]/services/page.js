@@ -30,7 +30,7 @@
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             </div>
             <div className="relative z-10 text-yellow-400">
-              <h1 className="text-6xl font-extrabold tracking-wide">
+              <h1 className="text-6xl mt-24 font-extrabold tracking-wide">
                 {intl.formatMessage({ id: "services_header" })} {/* ✅ Translated */}
               </h1>
               <p className="text-xl mt-3 text-gray-300">
@@ -162,7 +162,7 @@
               </div>
             ))}
           </div>
-
+          
           {/* ✅ Contact Section */}
           <ContactMe />
 
